@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo de los Dinosaurios</title>
+    <link rel="stylesheet" href="dinosaurios-styles.css">
+    <script src="dinosaurios-script.js"></script>
+    <audio id="musica-fondo" loop autoplay>
+        <source src="https://youtu.be/lDlU08RU7Tk" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>🦕 Mundo de los Dinosaurios 🦖</h1>
+            <p>Explora el fascinante mundo de los dinosaurios y descubre datos increíbles sobre cada especie.</p>
+        </header>
+
+        <section class="dino-controls">
+            <div class="search-container">
+                <input type="text" id="buscador" placeholder="🔍 Buscar dinosaurios..." class="search-input">
+                <select id="filtro-periodo" class="filter-select">
+                    <option value="">Todos los períodos</option>
+                    <option value="triassico">Triásico</option>
+                    <option value="jurassico">Jurásico</option>
+                    <option value="cretacico">Cretácico</option>
+                </select>
+                <select id="filtro-dieta" class="filter-select">
+                    <option value="">Todas las dietas</option>
+                    <option value="herbivoro">Herbívoro</option>
+                    <option value="carnivoro">Carnívoro</option>
+                    <option value="omnivoro">Omnívoro</option>
+                </select>
+                <button id="btn-ordenar" class="btn-interactivo">📊 Ordenar</button>
+                <div class="musica-controls">
+                    <button id="btn-musica" class="btn-musica">🎵 Música</button>
+                    <input type="range" id="volumen" min="0" max="100" value="30" class="volumen-slider">
+                </div>
+            </div>
+        </section>
+
+        <section class="mapa-section">
+            <h2>🗺️ Mapa de Hábitats de Dinosaurios</h2>
+            <div class="mapa-container">
+                <div id="mapa-mundo" class="mapa-mundo">
+                    <!-- Continentes interactivos -->
+                    <div class="continente" data-region="norteamerica" title="Norteamérica">
+                        <span class="continente-nombre">Norteamérica</span>
+                    </div>
+                    <div class="continente" data-region="sudamerica" title="Sudamérica">
+                        <span class="continente-nombre">Sudamérica</span>
+                    </div>
+                    <div class="continente" data-region="europa" title="Europa">
+                        <span class="continente-nombre">Europa</span>
+                    </div>
+                    <div class="continente" data-region="asia" title="Asia">
+                        <span class="continente-nombre">Asia</span>
+                    </div>
+                    <div class="continente" data-region="africa" title="África">
+                        <span class="continente-nombre">África</span>
+                    </div>
+                </div>
+                <div class="mapa-info">
+                    <h3>Hábitats por Región</h3>
+                    <div id="region-dinosaurios" class="region-dinosaurios">
+                        <p class="info-mensaje">🗺️ Haz clic en un continente para ver los dinosaurios que vivieron allí</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fosiles-section">
+            <h2>🦴 Fósiles de Dinosaurios</h2>
+            <div class="fosiles-container">
+                <div class="fosiles-intro">
+                    <h3>🔍 El Fascinante Mundo de los Fósiles</h3>
+                    <p>Los fósiles son ventanas al pasado que nos permiten conocer cómo vivieron los dinosaurios hace millones de años. Descubre los hallazgos más importantes y cómo los científicos estudian estos tesoro prehistóricos.</p>
+                </div>
+                
+                <div class="fosiles-grid">
+                    <div class="fosil-card destacado">
+                        <div class="fosil-imagen-container">
+                            <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sue - T-Rex" class="fosil-imagen">
+                            <div class="fosil-badge">⭐ Hallazgo Principal</div>
+                        </div>
+                        <div class="fosil-content">
+                            <h3>🦖 "Sue" - El T-Rex Más Completo</h3>
+                            <div class="fosil-info">
+                                <p><strong>Descubierto:</strong> 1990 por Sue Hendrickson</p>
+                                <p><strong>Ubicación:</strong> Dakota del Sur, EE.UU.</p>
+                                <p><strong>Edad:</strong> 67 millones de años</p>
+                                <p><strong>Completitud:</strong> 90% del esqueleto</p>
+                            </div>
+                            <div class="fosil-descripcion">
+                                <p>"Sue" es uno de los esqueletos de Tyrannosaurus rex más completos y mejor preservados jamás encontrados. Con 12.3 metros de largo, este espécimen femenino ha revolucionado nuestra comprensión de los depredadores del Cretácico.</p>
+                            </div>
+                            <div class="fosil-importancia">
+                                <h4>🔬 Importancia Científica</h4>
+                                <ul>
+                                    <li>Primer T-Rex con esternón completo</li>
+                                    <li>Evidencia de heridas y enfermedades</li>
+                                    <li>Permite estudiar biomecánica del movimiento</li>
+                                    <li>Base para reconstrucciones 3D precisas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fosil-card">
+                        <div class="fosil-imagen-container">
+                            <img src="https://images.unsplash.com/photo-1578615663337-5c0a6c9fc9e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fósil de dinosaurio" class="fosil-imagen">
+                        </div>
+                        <div class="fosil-content">
+                            <h3>🥚 Huevos de Dinosaurio</h3>
+                            <div class="fosil-info">
+                                <p><strong>Descubiertos:</strong> Primeros en 1859</p>
+                                <p><strong>Tamaños:</strong> Desde 2cm hasta 60cm</p>
+                                <p><strong>Especies:</strong> Más de 30 especies identificadas</p>
+                            </div>
+                            <div class="fosil-descripcion">
+                                <p>Los huevos fósiles proporcionan información crucial sobre el comportamiento reproductivo, crecimiento y desarrollo de los dinosaurios. Algunos nidos contienen huevos organizados en patrones que sugieren cuidado parental.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fosil-card">
+                        <div class="fosil-imagen-container">
+                            <img src="https://images.unsplash.com/photo-1611273604077-9b145b0c2b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pistas fósiles" class="fosil-imagen">
+                        </div>
+                        <div class="fosil-content">
+                            <h3>👣 Pistas y Huellas Fósiles</h3>
+                            <div class="fosil-info">
+                                <p><strong>Descubiertas:</strong> Miles en todo el mundo</p>
+                                <p><strong>Información:</strong> Comportamiento y locomoción</p>
+                                <p><strong>Más grandes:</strong> Hasta 2 metros de largo</p>
+                            </div>
+                            <div class="fosil-descripcion">
+                                <p>Las pistas fósiles son únicas porque registran comportamiento vivo: velocidad, postura, interacciones sociales y migraciones. Algunas muestran manadas de dinosaurios moviéndose juntas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fosiles-proceso">
+                    <h3>🔬 ¿Cómo se Descubren los Fósiles?</h3>
+                    <div class="proceso-grid">
+                        <div class="proceso-paso">
+                            <div class="paso-numero">1</div>
+                            <div class="paso-content">
+                                <h4>🗺️ Exploración</h4>
+                                <p>Los paleontólogos investigan formaciones rocosas con edad apropiada (Triásico, Jurásico, Cretácico) y buscan indicadores visuales como huesos expuestos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="proceso-paso">
+                            <div class="paso-numero">2</div>
+                            <div class="paso-content">
+                                <h4>⛏️ Excavación</h4>
+                                <p>Proceso cuidadoso usando herramientas pequeñas como cepillos, picos y cinceles. Se documenta la posición exacta de cada hueso antes de removerlo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="proceso-paso">
+                            <div class="paso-numero">3</div>
+                            <div class="paso-content">
+                                <h4>📦 Embalaje</h4>
+                                <p>Los huesos se envuelven en yeso y se protegen con burbujas para transporte seguro al laboratorio. Se conserva el contexto sedimentario.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="proceso-paso">
+                            <div class="paso-numero">4</div>
+                            <div class="paso-content">
+                                <h4>🔬 Análisis de Laboratorio</h4>
+                                <p>Los fósiles se limpian, estabilizan y estudian usando microscopios, escaneos 3D y análisis químicos para determinar edad y dieta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fosiles-tecnicas">
+                    <h3>🔬 Técnicas Modernas de Estudio</h3>
+                    <div class="tecnicas-grid">
+                        <div class="tecnica-card">
+                            <h4>🖥️ Tomografía Computarizada</h4>
+                            <p>Escaneos 3D que permiten ver estructuras internas sin dañar el fósil. Revelan cavidades cerebrales y senos nasales.</p>
+                        </div>
+                        
+                        <div class="tecnica-card">
+                            <h4>🧬 Análisis de ADN</h4>
+                            <p>Intentos de extraer material genético preservado en huesos. Aunque difícil, ha proporcionado información sobre relaciones evolutivas.</p>
+                        </div>
+                        
+                        <div class="tecnica-card">
+                            <h4>🎨 Reconstrucción Digital</h4>
+                            <p>Modelos 3D computarizados que permiten simular movimiento, fuerza mordida y comportamiento biomecánico.</p>
+                        </div>
+                        
+                        <div class="tecnica-card">
+                            <h4>⚗️ Datación Radiométrica</h4>
+                            <p>Técnicas como carbono-14 y uranio-plomo que determinan con precisión la edad de los fósiles y las capas sedimentarias.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fosiles-curiosidades">
+                    <h3>🌟 Datos Fascinantes sobre Fósiles</h3>
+                    <div class="curiosidades-grid">
+                        <div class="curiosidad-item">
+                            <h4>🦴 Preservación Excepcional</h4>
+                            <p>Algunos fósiles conservan piel, plumas e incluso órganos internos, como los dinosaurios emplumados de Liaoning, China.</p>
+                        </div>
+                        
+                        <div class="curiosidad-item">
+                            <h4>🏛️ Museos del Mundo</h4>
+                            <p>El Museo Americano de Historia Natural (NY) y el Museo de Historia Natural de Londres tienen las colecciones más importantes del mundo.</p>
+                        </div>
+                        
+                        <div class="curiosidad-item">
+                            <h4>📊 Estadísticas</h4>
+                            <p>Solo se han descubierto unos 3,000 esqueletos completos de dinosaurios, aunque se conocen más de 1,000 especies.</p>
+                        </div>
+                        
+                        <div class="curiosidad-item">
+                            <h4>🌍 Distribución Global</h4>
+                            <p>Se encuentran fósiles en todos los continentes, incluyendo la Antártida, donde se descubrieron dinosaurios adaptados al frío.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>🧠 Quiz de Dinosaurios</h2>
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <span id="quiz-counter">Pregunta 1 de 10</span>
+                    </div>
+                    <div class="quiz-score">
+                        <span>🏆 Puntuación: <span id="score">0</span></span>
+                    </div>
+                </div>
+                
+                <div id="quiz-content" class="quiz-content">
+                    <div class="quiz-start">
+                        <h3>🦕 ¡Pon a prueba tu conocimiento!</h3>
+                        <p>Responde 10 preguntas sobre dinosaurios y descubre cuánto sabes sobre estas fascinantes criaturas prehistóricas.</p>
+                        <button id="start-quiz" class="btn-quiz">Comenzar Quiz</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-result" class="quiz-result" style="display: none;">
+                    <h3>🎉 ¡Quiz Completado!</h3>
+                    <div class="result-stats">
+                        <p>Respuestas correctas: <strong id="correct-answers">0</strong> de 10</p>
+                        <p>Porcentaje: <strong id="percentage">0%</strong></p>
+                        <div id="result-message" class="result-message"></div>
+                    </div>
+                    <button id="restart-quiz" class="btn-quiz">Jugar de Nuevo</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="curiosidades-section">
+            <h2>🌟 Datos Curiosos de Dinosaurios</h2>
+            <div class="curiosidades-container">
+                <div class="curiosidades-intro">
+                    <h3>🦕 ¡Datos Sorprendentes!</h3>
+                    <p>Descubre hechos fascinantes y curiosidades increíbles sobre el mundo de los dinosaurios que te dejarán sin palabras.</p>
+                </div>
+                
+                <div class="curiosidades-grid">
+                    <div class="curiosidad-card asombroso">
+                        <div class="curiosidad-icono">🦖</div>
+                        <h3>El T-Rex tenía visión binocular</h3>
+                        <p>El Tyrannosaurus rex tenía una visión superpuesta como los humanos, lo que le daba percepción de profundidad y lo hacía un cazador extremadamente preciso.</p>
+                        <div class="curiosidad-dato">📊 Precisión de caza: 85%</div>
+                    </div>
+                    
+                    <div class="curiosidad-card gigante">
+                        <div class="curiosidad-icono">🦕</div>
+                        <h3>El dinosaurio más largo</h3>
+                        <p>El Argentinosaurus podía alcanzar hasta 40 metros de longitud, equivalente a 4 autobuses urbanos colocados uno tras otro.</p>
+                        <div class="curiosidad-dato">📏 Longitud: 40 metros</div>
+                    </div>
+                    
+                    <div class="curiosidad-card pequeno">
+                        <div class="curiosidad-icono">🥚</div>
+                        <h3>El dinosaurio más pequeño</h3>
+                        <p>El Compsognathus era tan pequeño como un pollo actual, con solo 60 cm de longitud y pesaba aproximadamente 3 kg.</p>
+                        <div class="curiosidad-dato">⚖️ Peso: 3 kg</div>
+                    </div>
+                    
+                    <div class="curiosidad-card rapido">
+                        <div class="curiosidad-icono">💨</div>
+                        <h3>El más rápido</h3>
+                        <p>El Gallimimus podía correr hasta 70 km/h, más rápido que un guepardo moderno, gracias a sus largas y delgadas piernas.</p>
+                        <div class="curiosidad-dato">🏃 Velocidad: 70 km/h</div>
+                    </div>
+                    
+                    <div class="curiosidad-card inteligente">
+                        <div class="curiosidad-icono">🧠</div>
+                        <h3>Cerebros sorprendentes</h3>
+                        <p>El Troodon tenía el cerebro más grande en proporción a su cuerpo, con una inteligencia comparable a la de las aves modernas.</p>
+                        <div class="curiosidad-dato">🧠 CI estimado: Similar a aves</div>
+                    </div>
+                    
+                    <div class="curiosidad-card armadura">
+                        <div class="curiosidad-icono">🛡️</div>
+                        <h3>Armadura natural</h3>
+                        <p>El Ankylosaurus tenía una armadura ósea tan resistente que podía soportar la mordida de un T-Rex sin sufrir daños graves.</p>
+                        <div class="curiosidad-dato">🛡️ Protección: Nivel tanque</div>
+                    </div>
+                    
+                    <div class="curiosidad-card plumas">
+                        <div class="curiosidad-icono">🪶</div>
+                        <h3>¡Muchos tenían plumas!</h3>
+                        <p>La mayoría de los dinosaurios terópodos tenían plumas, incluyendo al T-Rex cuando era joven. No eran para volar, sino para aislamiento térmico.</p>
+                        <div class="curiosidad-dato">🪶 Especies con plumas: 70%</div>
+                    </div>
+                    
+                    <div class="curiosidad-card tiempo">
+                        <div class="curiosidad-icono">⏰</div>
+                        <h3>Reinado increíblemente largo</h3>
+                        <p>Los dinosaurios dominaron la Tierra durante 165 millones de años, ¡mucho más tiempo que los humanos hemos existido!</p>
+                        <div class="curiosidad-dato">⏰ Duración: 165 millones de años</div>
+                    </div>
+                    
+                    <div class="curiosidad-card sonido">
+                        <div class="curiosidad-icono">🔊</div>
+                        <h3>Sonidos potentes</h3>
+                        <p>El Parasaurolophus podía emitir sonidos de baja frecuencia que viajaban kilómetros gracias a su cresta tubular hueca.</p>
+                        <div class="curiosidad-dato">🔊 Alcance del sonido: 5 km</div>
+                    </div>
+                    
+                    <div class="curiosidad-card huevos">
+                        <div class="curiosidad-icono">🥚</div>
+                        <h3>Posturas de incubación</h3>
+                        <p>Algunos dinosaurios incubaban sus huevos sentándose sobre ellos, similar a como lo hacen las aves modernas.</p>
+                        <div class="curiosidad-dato">🥚 Temperatura: 30-35°C</div>
+                    </div>
+                    
+                    <div class="curiosidad-card social">
+                        <div class="curiosidad-icono">👥</div>
+                        <h3>Comportamiento social</h3>
+                        <p>Evidencias fósiles muestran que muchos dinosaurios vivían en manadas y cazaban coordinadamente, como los lobos modernos.</p>
+                        <div class="curiosidad-dato">👥 Tamaño de manada: 20-100 individuos</div>
+                    </div>
+                    
+                    <div class="curiosidad-card corazon">
+                        <div class="curiosidad-icono">❤️</div>
+                        <h3>Corazones complejos</h3>
+                        <p>Algunos dinosaurios tenían corazones de cuatro cámaras como las aves y mamíferos modernos, permitiendo metabolismos más activos.</p>
+                        <div class="curiosidad-dato">❤️ Eficiencia: Similar a aves</div>
+                    </div>
+                </div>
+                
+                <div class="curiosidades-extremos">
+                    <h3>📊 Récords y Extremos</h3>
+                    <div class="extremos-grid">
+                        <div class="extremo-item">
+                            <h4>🏆 Más Grande</h4>
+                            <p><strong>Argentinosaurus</strong><br>70 toneladas</p>
+                        </div>
+                        <div class="extremo-item">
+                            <h4>🏃 Más Rápido</h4>
+                            <p><strong>Gallimimus</strong><br>70 km/h</p>
+                        </div>
+                        <div class="extremo-item">
+                            <h4>🦷 Más Dientes</h4>
+                            <p><strong>Hadrosaurus</strong><br>1,400 dientes</p>
+                        </div>
+                        <div class="extremo-item">
+                            <h4>🧠 Más Inteligente</h4>
+                            <p><strong>Troodon</strong><br>CI de ave</p>
+                        </div>
+                        <div class="extremo-item">
+                            <h4>🪶 Más Emplumado</h4>
+                            <p><strong>Yutyrannus</strong><br>Plumas completas</p>
+                        </div>
+                        <div class="extremo-item">
+                            <h4>⏰ Más Antiguo</h4>
+                            <p><strong>Eoraptor</strong><br>231 millones de años</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="curiosidades-mitos">
+                    <h3>🔍 Mitos vs Realidad</h3>
+                    <div class="mitos-grid">
+                        <div class="mito-item">
+                            <div class="mito-falso">
+                                <h4>❌ Mito</h4>
+                                <p>Los dinosaurios eran lentos y torpes</p>
+                            </div>
+                            <div class="mito-verdadero">
+                                <h4>✅ Realidad</h4>
+                                <p>Muchos eran ágiles y activos, con metabolismos similares a las aves</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mito-item">
+                            <div class="mito-falso">
+                                <h4>❌ Mito</h4>
+                                <p>Todos los dinosaurios eran gigantes</p>
+                            </div>
+                            <div class="mito-verdadero">
+                                <h4>✅ Realidad</h4>
+                                <p>La mayoría eran del tamaño de un humano o más pequeños</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mito-item">
+                            <div class="mito-falso">
+                                <h4>❌ Mito</h4>
+                                <p>Los dinosaurios vivieron todos juntos</p>
+                            </div>
+                            <div class="mito-verdadero">
+                                <h4>✅ Realidad</h4>
+                                <p>Vivieron en diferentes períodos separados por millones de años</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mito-item">
+                            <div class="mito-falso">
+                                <h4>❌ Mito</h4>
+                                <p>El T-Rex era verde con escamas</p>
+                            </div>
+                            <div class="mito-verdadero">
+                                <h4>✅ Realidad</h4>
+                                <p>Probablemente tenía plumas y colores similares a las aves rapaces</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="curiosidades-modernas">
+                    <h3>🦅 Dinosaurios Hoy</h3>
+                    <div class="modernas-grid">
+                        <div class="moderna-item">
+                            <h4>🐦 Aves = Dinosaurios</h4>
+                            <p>Las aves modernas son descendientes directos de los dinosaurios terópodos. ¡Estás viendo dinosaurios vivos cada día!</p>
+                        </div>
+                        
+                        <div class="moderna-item">
+                            <h4>🦎 Lagartos NO son dinosaurios</h4>
+                            <p>Los lagartos y cocodrilos son reptiles, pero no dinosaurios. Los dinosaurios tenían postura erguida y caderas diferentes.</p>
+                        </div>
+                        
+                        <div class="moderna-item">
+                            <h4>🧬 ADN de dinosaurio</h4>
+                            <p>No podemos clonar dinosaurios como en Jurassic Park. El ADN se degrada completamente después de 1 millón de años.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dino-section">
+            <h2>Base de Datos de Dinosaurios</h2>
+            <div id="dinosaurios-container" class="dinosaurios-grid">
+                <!-- Las tarjetas de dinosaurios se generarán dinámicamente con JavaScript -->
+            </div>
+        </section>
+
+        <section class="estadisticas-section">
+            <h2>📊 Estadísticas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total de Especies</h3>
+                    <p id="total-especies">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Período Más Representado</h3>
+                    <p id="periodo-popular">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Dinosaurio Más Grande</h3>
+                    <p id="dino-grande">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Primer Descubierto</h3>
+                    <p id="primer-descubierto">-</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Mundo de los Dinosaurios. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
